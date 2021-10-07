@@ -1,5 +1,7 @@
 package com.packt.cardatabase.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -17,6 +19,7 @@ public class Owner {
     private String firstname, lastname;
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy="owner")
+    @JsonIgnore
     private List<Car> cars;
 
     public Owner() {}
